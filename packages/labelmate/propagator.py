@@ -188,12 +188,12 @@ class PLASPIXLabelProp():
 
         logger.info(f"Data related to the experiment were saved to {save_path}")
 
-    def run_pipeline(self):
+    def run_pipeline(self, ckp_path):
         """Runs all the steps required to perform label propagation and then runs evaluation
         """
         self.validate_input_data()
         self.setup_input_params()
-        self.propagate_labels()
+        self.propagate_labels(ckp_path)
         self.evaluate_output()
 
 

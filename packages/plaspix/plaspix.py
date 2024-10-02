@@ -351,7 +351,7 @@ def prop_to_unlabelled_spix_feat(sparse_labels, connected, features_cnn, H, W):
 
     return prop_mask
 
-# if __name__ == "__main__":
+
 def propagate_labels(ckp_path, args):
     parser = argparse.ArgumentParser(description='Input specifications for generating augmented ground truth from randomly distributed point labels.')
 
