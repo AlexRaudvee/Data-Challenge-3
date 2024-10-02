@@ -99,12 +99,12 @@ class PLASPIXLabelProp():
         
         logger.debug(f"Input Parameters for PLASPIX: {self.input_params}")
     
-    def propagate_labels(self):
+    def propagate_labels(self, ckp_path):
         """Run Point Label Aware Superpixels module for given dataset and hyper parameters.
         """
         # run point label aware superpixels module for given dataset and hyper parameters
         logger.info(f"Initiating PLASPIX module execution ...")
-        plaspix.propagate_labels(self.input_params)
+        plaspix.propagate_labels(ckp_path, self.input_params)
         logger.info(f"Finished PLASPIX module execution")
 
         # check if all images have been processed successfully
