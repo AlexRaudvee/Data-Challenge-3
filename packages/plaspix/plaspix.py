@@ -351,7 +351,7 @@ def prop_to_unlabelled_spix_feat(sparse_labels, connected, features_cnn, H, W):
 
     return prop_mask
 
-# if __name__ == "__main__":
+
 def propagate_labels(ckp_path, args):
     parser = argparse.ArgumentParser(description='Input specifications for generating augmented ground truth from randomly distributed point labels.')
 
@@ -452,10 +452,10 @@ def propagate_labels(ckp_path, args):
     if ckp_path == None:
         ckp_path = "standardization_C=100_step70000.pth" # trained on UCSD, but standardization applied
     obj = torch.load(ckp_path)
-    pretrained_dict = obj['net']
+    pretrained_dict = obj
     # 1. filter out unnecessary keys
     # Note: in the pretrained model, all parameters have "CNN." in front of the key names, meaning they won't match the loaded CNN (when loaded without the whole SSN)
-    pretrained_dict = {key[4:]: val for key, val in pretrained_dict.items() if key[4:] in model_dict}  
+    # pretrained_dict = {key[4:]: val for key, val in pretrained_dict.items() if key[4:] in model_dict}  
     # 2. overwrite entries in the existing state dict
     model_dict.update(pretrained_dict) 
     CNN_function.load_state_dict(pretrained_dict)
