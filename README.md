@@ -1,49 +1,75 @@
-# Label Propagation
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
+# SAM and PLASPIX development
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+During this project, we conducted experiments and research on various approaches for creating dense segmentation masks for corals using images of coral reefs and sparse point labels. The project focused on implementing the SAM (Segment Anything Model) and PLASPIX approaches in combination with different label propagation techniques and superpixel models to improve segmentation accuracy and efficiency.
 
 ## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+![GitHub License](https://img.shields.io/github/license/AlexRaudvee/Data-Challenge-3)
+![GitHub Issues](https://img.shields.io/github/issues/AlexRaudvee/Data-Challenge-3)
+![GitHub Forks](https://img.shields.io/github/forks/AlexRaudvee/Data-Challenge-3)
+![GitHub Stars](https://img.shields.io/github/stars/AlexRaudvee/Data-Challenge-3)
 
 ## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+To better understand the results and the models used in this project, here are some visual aids:
+
+#### Original data and Super Pixels (SLIC Example)
+![Original Image with Sparse Point Labels](assets/vis/base_example.png) ![Super Pixels (SLIC example)](assets/vis/super_pix_example.png)
+#### Propagated Lables (Diffusion)
+![Super Pixels (SLIC example)](assets/vis/super_pix_example.png)
+
+#### Coral Segmentation Examples with SAM:
+![Coral Segmentation](assets/vis/soft-hard-vis.png)
+
+#### Coral Segmentation Examples with PLASPIX (SLIC + Diffusion):
+- ![PLASPIX Example](assets/vis/soft-hard-vis-plaspix.png)
+
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+To set up and run this project locally, follow these steps:
+
+#### Requirements
+All the requirements can be found under `requirements.txt` file. If you would like to run the notebook locally, make sure to adjust the file paths in the `pipeline.ipynb` and remove the `google` imports in the Imports section.
+
+#### Steps:
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/yourproject.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd yourproject
+    ```
+3. Create and activate a virtual environment (optional but recommended):
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+4. Installhthe required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+After the installation, you can run the main pipeline thorugh your google colab session. The file that you have to run is `pipeline.ipynb`. Make sure to ckeck that you have created a short cut for images that are on google drive or/and change the global paths.
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+We welcome contributions! To contribute:
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/new-feature`).
+3. Commit your changes (`git commit -m 'Add a new feature'`). 
+4. Push to the branch (`git push origin feature/new-feature`).
+5. Open a Pull Request.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Make sure to check our contributing guidelines for more details.
 
 ## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+This project was created by `Aleksandr Raudvee`, `Ansant Omurzakov`, `Leo Yung`, `Cris Bitca`, `Timofey Iukhnov`, `Igor Freik`. Special thanks to all the contributors and the open-source community for providing valuable tools and libraries that made this project possible.
 
 ## License
-For open source projects, say how it is licensed.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Currently, the project is under active development. Future plans include adding new features and improving model performance. If you'd like to contribute or take over certain aspects, feel free to contact us!
