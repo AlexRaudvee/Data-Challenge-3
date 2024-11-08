@@ -75,7 +75,7 @@ All the requirements can be found under `requirements.txt` file. If you would li
     ```bash
     pip install -r requirements.txt
     ```
-5. **If you find problems with *pydencrf* library**:    
+5. **If you find problems with *pydencrf* library** (If you run locally):    
     If the problem originates from the wheel, look up the wheel online and download it manually 
     If the problem originates somewhere else, check the python version
 6. Make a shortcut from [this disk](https://drive.google.com/drive/folders/1JWr9SORKKmUjwQFYigekfVXpHwfEqNss) to "My Drive" (For those who run through Google Colab) 
