@@ -18,7 +18,7 @@ The initial inspiration was from one of the startups [Fruitpuch AI Team and one 
 - [Installation](#installation) - careful with python version if you run locally 
   - [Requirements](#requirements)
   - [Set-UP](#set-up)
-- [Project Derictory Structure](#project-directory-structure)
+- [Project Derictory Structure](#project-directory-structure) - Note on documentation!
 - [Usage](#usage) - Note on Google Colab Run!!!
 - [Contributing](#contributing)
 - [Authors and Acknowledgment](#authors-and-acknowledgment)
