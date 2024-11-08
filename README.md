@@ -11,13 +11,12 @@ The initial inspiration was from one of the startups [Fruitpuch AI Team and one 
 - [Inspiration and Data](#inspiration-and-data)
 - [Badges](#badges)
 - [Visuals](#visuals)
-  - [Original Data and Super Pixels](#original-data-and-super-pixels-slic-example)
-  - [Propagated Labels (Diffusion)](#propagated-labels-diffusion)
-  - [Coral Segmentation Examples with SAM](#coral-segmentation-examples-with-sam)
-  - [Coral Segmentation Examples with PLASPIX](#coral-segmentation-examples-with-plaspix-slic--diffusion)
+  - [Original Data -\> Superpixels -> Propagation](#original-data---super-pixels-slic---diffusion-label-propagation)
+  - [Coral Segmentation Examples with SAM and PLASPIX](#coral-segmentation-examples-with-sam--plaspix-slicdiffusion)
 - [Installation](#installation) - careful with python version if you run locally 
   - [Requirements](#requirements)
   - [Steps](#steps)
+- [Project Derictory Structure](#project-directory-structure)
 - [Usage](#usage) - Note on Google Colab Run!!!
 - [Contributing](#contributing)
 - [Authors and Acknowledgment](#authors-and-acknowledgment)
@@ -34,16 +33,19 @@ The initial inspiration was from one of the startups [Fruitpuch AI Team and one 
 ## Visuals
 To better understand the results and the models used in this project, here are some visual aids:
 
-#### Original data and Super Pixels (SLIC Example)
-![Original Image with Sparse Point Labels](assets/vis/base_example.png) ![Super Pixels (SLIC example)](assets/vis/super_pix_example.png)
-#### Propagated Labels (Diffusion)
-![Super Pixels (SLIC example)](assets/vis/super_pix_example.png)
+#### Original data -> Super Pixels (SLIC) -> Diffusion Label propagation 
 
-#### Coral Segmentation Examples with SAM:
-![Coral Segmentation](assets/vis/soft-hard-vis.png)
+<div style="display: flex; align-items: center;">
+  <img src="assets/vis/base_example.png" alt="Original Image with Sparse Point Labels" width="33%" style="margin-right: 10px;">
+  <img src="assets/vis/super_pix_example.png" alt="Super Pixels (SLIC example)" width="28.25%">
+  <img src="assets/vis/label_propagarion_example.png" alt="Super Pixels (SLIC example)" width="31.3%">
+</div>
 
-#### Coral Segmentation Examples with PLASPIX (SLIC + Diffusion):
-- ![PLASPIX Example](assets/vis/soft-hard-vis-plaspix.png)
+#### Coral Segmentation Examples with SAM | PLASPIX (SLIC+Diffusion)
+<div style="display: flex; align-items: center;">
+  <img src="assets/vis/soft-hard-vis.png" alt="SAM Examples" width="50%" style="margin-right: 10px;">
+  <img src="assets/vis/soft-hard-vis-plaspix.png" alt="PLASPIX Examples" width="50%">
+</div>
 
 
 ## Installation
@@ -75,6 +77,35 @@ All the requirements can be found under `requirements.txt` file. If you would li
     If the problem originates from the wheel, look up the wheel online and download it manually 
     If the problem originates somewhere else, check the python version
 
+## Project Directory Structure
+
+```plaintext
+root
+├── assets/                                  # Here is all the visuals
+├── exp_notebooks/
+│   ├── plaspix_exp.ipynb                    # Experimentation with PLASPIX
+│   └── propagators_exp.ipynb                # Experimentation with label propagation methods
+├── packages/
+│   ├── labelmate/                           # LabelMate package for labeling utilities FROM PREVIOUS WORK
+│   ├── plaspix/                             # PLASPIX package for segmentation FROM PREVIOUS WORK
+│   ├── dataloader.py                        # Custom Data loading utilities for PLASPIX and SAM 
+│   ├── PLASPIX.py                           # Custom Core PLASPIX algorithm implementation
+│   └── utils.py                             # Custom Utility functions for PLASPIX and SAM
+├── prev_work_notebooks/                     # Previous work and exploration notebooks FROM PREVIOUS WORK
+│   ├── eda-label-mismatch.ipynb             # Exploratory analysis on label mismatches
+│   ├── eda-seaview.ipynb                    # Exploratory analysis on sea view data
+│   ├── label-propagation-hyperparam.ipynb   # Hyperparameter tuning for label propagation
+│   ├── plaspix-hyper-param-tuning.ipynb     # Hyperparameter tuning for PLASPIX
+│   ├── sam-exploration.ipynb                # SAM model exploration notebook
+│   └── sam-exploration-params.ipynb         # SAM exploration with parameter tuning
+├── processings/
+│   ├── pre_post_process.py                  # Custom Pre- and post-processing functions
+├── .gitignore                               # Git ignore file
+├── LICENSE                                  # License for the project
+├── README.md                                # Project README file
+├── requirements.txt                         # Python dependencies
+└── pipeline.ipynb                           # Main pipeline notebook
+```
 
 ## Usage
 After the installation, you can run the main pipeline through your google colab session. The file that you have to run is `pipeline.ipynb`. Make sure to check that you have created a short cut for images that are on google drive or/and change the global paths. 
