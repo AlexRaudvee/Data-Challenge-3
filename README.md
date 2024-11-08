@@ -4,7 +4,9 @@
 During this project, we conducted experiments and research on various approaches for creating dense segmentation masks for corals using images of coral reefs and sparse point labels. The project focused on implementing the SAM (Segment Anything Model) and PLASPIX approaches in combination with different label propagation techniques and superpixel models to improve segmentation accuracy and efficiency. 
 
 ## Inspiration and Data
-The initial inspiration was from one of the startups [Fruitpuch AI Team and one of their challenges](https://app.fruitpunch.ai/challenge/ai-for-coral-reefs-2#overview). All the data that were used can be found [here](http://data.qld.edu.au/public/Q1281/) and in our case we used photo quadrants.
+The initial inspiration was from one of the startups [Fruitpuch AI Team and one of their challenges](https://app.fruitpunch.ai/challenge/ai-for-coral-reefs-2#overview). All the data that were used can be found [here](http://data.qld.edu.au/public/Q1281/) and in our case we used photo quadrants. 
+
+**NOTE**: For running through dataset read [steps](#steps) there is a clear explanation of how to load the data.
 
 ## Table of Contents
 - [Description](#description)
@@ -15,7 +17,7 @@ The initial inspiration was from one of the startups [Fruitpuch AI Team and one 
   - [Coral Segmentation Examples with SAM and PLASPIX](#coral-segmentation-examples-with-sam--plaspix-slicdiffusion)
 - [Installation](#installation) - careful with python version if you run locally 
   - [Requirements](#requirements)
-  - [Steps](#steps)
+  - [Set-UP](#set-up)
 - [Project Derictory Structure](#project-directory-structure)
 - [Usage](#usage) - Note on Google Colab Run!!!
 - [Contributing](#contributing)
@@ -55,7 +57,7 @@ To set up and run this project locally, follow these steps:
 - `Python - 3.10.14` !
 All the requirements can be found under `requirements.txt` file. If you would like to run the notebook locally, make sure to adjust the file paths in the `pipeline.ipynb` and remove the `google` imports in the Imports section. 
 
-#### Steps:
+#### Set-up:
 1. Clone the repository:
     ```bash
     git clone https://github.com/yourusername/yourproject.git
@@ -76,8 +78,8 @@ All the requirements can be found under `requirements.txt` file. If you would li
 5. **If you find problems with *pydencrf* library**:    
     If the problem originates from the wheel, look up the wheel online and download it manually 
     If the problem originates somewhere else, check the python version
-6. Make a shortcut from [this disk](https://drive.google.com/drive/folders/1JWr9SORKKmUjwQFYigekfVXpHwfEqNss) to "My Drive" (For those who run through Google Colab)
-7. Make sure to change the paths in the global parameters section in `pipeline.ipynb` when you encounter that there is mistake or files not found **(check Step 6 and make sure that you use same account for google drive & google colab)**
+6. Make a shortcut from [this disk](https://drive.google.com/drive/folders/1JWr9SORKKmUjwQFYigekfVXpHwfEqNss) to "My Drive" (For those who run through Google Colab) 
+7. Make sure to change the paths in the global parameters section in `pipeline.ipynb` when you encounter that there is mistake or files not found **(check Step 6 and make sure that you use same account for google drive & google colab)**. if there was no changes to this google drive, then everything should run silently, so keep your eyes on the output of `File Not Found Error`.
 
 ## Project Directory Structure
 
@@ -110,8 +112,11 @@ root
 ```
 
 ## Usage
-After the installation, you can run the main pipeline through your google colab session. The file that you have to run is `pipeline.ipynb`. Make sure to check that you have created a short cut for images that are on google drive or/and change the global paths. 
-**NOTE**: If you run the pipeline in google colab, make sure to add the following folders to working environment: `packages`, `processings`, `assets`.
+After the installation, you can run the main pipeline through your google colab session. The file that you have to run is `pipeline.ipynb`. Make sure to check that you have created a short cut for images that are on google drive or/and change the global paths. If you decided to run the entire pipeline, we advice to set the `dataset_len_limit` in the dataloader at the bottom of the pipeline file, because otherwise the file is going to run for pretty long time before you get the results or visuals.
+
+**NOTE** Make sure that you did everything correctly from [Set-UP](#set-up) section! If something doesn't run, there is issues with installation part, so make sure, or contact us :)
+
+**NOTE**: If you run the pipeline in google colab, make sure to add the following folders to working environment: `packages`, `processings`, `assets`. 
 
 ## Contributing
 We welcome contributions! To contribute:
@@ -131,4 +136,4 @@ This project was created by `Aleksandr Raudvee`, `Ansant Omurzakov`, `Leo Yang`,
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Project status
-Currently, the project is under active development. Future plans include adding new features and improving model performance. If you'd like to contribute or take over certain aspects, feel free to contact us!
+Currently, the project is under active development. Future plans include adding new features and improving model performance. If you'd like to contribute or take over certain aspects, feel free to contact us! 
