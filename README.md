@@ -18,7 +18,7 @@ The initial inspiration was from one of the startups [Fruitpuch AI Team and one 
 - [Installation](#installation) - careful with python version if you run locally 
   - [Requirements](#requirements)
   - [Steps](#steps)
-- [Usage](#usage)
+- [Usage](#usage) - Note on Google Colab Run!!!
 - [Contributing](#contributing)
 - [Authors and Acknowledgment](#authors-and-acknowledgment)
 - [License](#license)
@@ -77,7 +77,8 @@ All the requirements can be found under `requirements.txt` file. If you would li
 
 
 ## Usage
-After the installation, you can run the main pipeline through your google colab session. The file that you have to run is `pipeline.ipynb`. Make sure to check that you have created a short cut for images that are on google drive or/and change the global paths.
+After the installation, you can run the main pipeline through your google colab session. The file that you have to run is `pipeline.ipynb`. Make sure to check that you have created a short cut for images that are on google drive or/and change the global paths. 
+**NOTE**: If you run the pipeline in google colab, make sure to add the following folders to working environment: `packages`, `processings`, `assets`.
 
 ## Contributing
 We welcome contributions! To contribute:
