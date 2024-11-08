@@ -110,6 +110,8 @@ root
 ├── requirements.txt                         # Python dependencies
 └── pipeline.ipynb                           # Main pipeline notebook
 ```
+**Note**: For detailed information on the inputs and outputs of each function, refer to the `pipeline.ipynb` notebook. Every function, class, and method in this project includes comprehensive docstrings that outline inputs, outputs, and provide a brief description (even examples on use). By hovering over any function in the notebook, you can quickly view this information. Since we are working on multiple projects, we prioritize scalability and maintain thorough documentation for all components in this project to ensure clarity and ease of use. 
+
 
 ## Usage
 After the installation, you can run the main pipeline through your google colab session. The file that you have to run is `pipeline.ipynb`. Make sure to check that you have created a short cut for images that are on google drive or/and change the global paths. If you decided to run the entire pipeline, we advice to set the `dataset_len_limit` in the dataloader at the bottom of the pipeline file, because otherwise the file is going to run for pretty long time before you get the results or visuals.
